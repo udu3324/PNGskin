@@ -13,7 +13,6 @@ let dh;
 
 //draws the new edited image to the canvas
 function sync() {
-    
     console.log(`${sx} ${sy} ${sw} ${sh} ${dw} ${dh}`)
 
     const image = new Image(),
