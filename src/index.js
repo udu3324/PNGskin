@@ -35,6 +35,8 @@ export function setImage(base64) {
   };
 }
 
+console.log("pngskin by udu3324 (https://github.com/udu3324)")
+
 ReactDOM.render(
   <React.StrictMode>
     <App />

@@ -44,10 +44,14 @@ span#credits {
 }
 
 button#info {
-  position: fixed;
-  right: 1rem;
   height: 3rem;
   width: 3rem;
+  margin-left: auto;
+}
+
+a {
+  color: #FFFFFF;
+  text-decoration: none;
 }
 
 /* Info Box */
@@ -58,7 +62,6 @@ button#info {
 .info-box {
   width: 37vh;
   color: #ffffff;
-  box-shadow: 0px 0px 17px 1px #1d1f26;
   background: #16181c;
   padding: 1rem;
   border-radius: .5rem;
@@ -93,7 +96,7 @@ button.info-close-button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 2.5rem;
+  padding: 1rem;
 }
 
 /* Start Content */
@@ -110,8 +113,7 @@ button.upload-image-button {
 
 img.start-image-1,
 img.start-image-2 {
-  width: 13rem;
-  border-radius: .5rem;
+  width: 14.4rem;
 }
 
 .start-stack-divs {
@@ -125,11 +127,10 @@ img.start-image-2 {
 
 .start-imgdiv-1 {
   padding-right: 2rem;
-  text-align: center;
 }
 
-.start-stacking-divs {
-  text-align: center;
+.start-text-div {
+  max-width: 33rem;
 }
 
 /* Editor Content */
@@ -157,7 +158,7 @@ canvas#editor-canvas {
   -ms-interpolation-mode: nearest-neighbor;
   /* IE                            */
   transform: scale(13);
-  -webkit-transform-origin-x: 0;
+  -webkit-transform-origin-x: 0.34rem;
   -webkit-transform-origin-y: 0;
 }
 
@@ -232,4 +233,52 @@ button.finish-download-button {
   font-weight: 600;
   margin-top: 1rem;
   margin-bottom: 1.5rem;
+}
+
+canvas#finish-canvas {
+  display: none;
+}
+
+/* Mobile CSS */
+@media only screen and (max-device-width: 520px) {
+  img.start-image-1,
+  img.start-image-2 {
+    width: 10rem;
+  }
+}
+
+@media only screen and (max-device-width: 580px) {
+  .editor-grid-top {
+    grid-area: header;
+  }
+
+  .editor-grid-left {
+    grid-area: sliders;
+    margin-top: -1rem;
+    width: 17rem;
+  }
+
+  .editor-grid-right {
+    grid-area: preview;
+  }
+
+  .editor-grid {
+    display: grid;
+    grid-template-areas:
+      'header header'
+      'sliders sliders'
+      'preview preview';
+    gap: 0.5rem;
+  }
+
+  canvas#editor-canvas {
+    image-rendering: optimizeSpeed;
+    image-rendering: -o-crisp-edges;
+    image-rendering: pixelated;
+    -ms-interpolation-mode: nearest-neighbor;
+    transform: scale(17);
+    -webkit-transform-origin-x: -0.14rem;
+    -webkit-transform-origin-y: 0;
+    padding-bottom: 0.1rem;
+  }
 }

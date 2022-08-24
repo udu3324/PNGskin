@@ -13,7 +13,7 @@ let dh;
 
 //draws the new edited image to the canvas
 function sync() {
-    console.log(`${sx} ${sy} ${sw} ${sh} ${dw} ${dh}`)
+    console.log(`${sx} ${sy} ${sw} ${sh}`)
 
     const image = new Image(),
         canvas = document.getElementById('editor-canvas'),
@@ -127,9 +127,9 @@ class Editor extends React.Component {
         return (
             <div id="editor" className="editor-grid">
                 <div className="editor-grid-top">
-                    <span className="editor-text">Edit Image to Skin</span>
+                    <span className="editor-text">Edit Image</span>
                     <br />
-                    <span>Use the sliders to create your skin.</span>
+                    <span>Use the sliders to edit skin.</span>
                 </div>
                 <div className="editor-grid-left">
                     <span className="editor-input-label"><FontAwesomeIcon icon={faUpDownLeftRight} /> Move Left & Right</span>

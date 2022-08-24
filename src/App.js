@@ -1,12 +1,12 @@
 import './styles/App.css';
 import Content from './Content'
-import Div from './Div';
+import Nav from './Nav';
 import Info from './Info';
 
 function App() {
   return (
     <div className="App">
-      <Div />
+      <Nav />
       <Content />
       
       <Info />
