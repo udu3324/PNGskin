@@ -12,11 +12,7 @@
 
 # PNGskin
 
-PNGskin is a simple website that turns images into minecraft skins using the
-
-Canvas Web API. You can turn any image into a minecraft skin by using 4 sliders.
-
-It's that simple. The website is desktop & mobile friendly.
+PNGskin is a simple website that turns images into minecraft skins using the Canvas Web API. You can turn any image into a minecraft skin by using 4 sliders. It's that simple. The website is desktop & mobile friendly.
 
 Thank you to [MauritsWike](https://github.com/MauritsWilke) for helping me.
 
@@ -30,9 +26,9 @@ Thank you to [MauritsWike](https://github.com/MauritsWilke) for helping me.
 
 ## Installation and Running
 
-Make sure you have [Node.JS](https://nodejs.org/en/download) installed. The
+Make sure you have [Node.JS](https://nodejs.org/en/download) installed. 
 
-version of Node I've tested it on was v16.15.1.
+The version of Node I've tested it on was v16.15.1. 
 
 Clone the repo and run `npm install` to install all dependencies.
 
@@ -40,6 +36,4 @@ Clone the repo and run `npm install` to install all dependencies.
 
 ## Contribute
 
-You can contribute to the project by reporting issues, feedback, and starring
-
-the [repository](https://github.com/udu3324/pngskin).
+You can contribute to the project by reporting issues, feedback, and starring the [repository](https://github.com/udu3324/pngskin).
