@@ -14,7 +14,7 @@
 
 PNGskin is a simple website that turns images into minecraft skins using the Canvas Web API. You can turn any image into a minecraft skin by using 4 sliders. It's that simple. The website is desktop & mobile friendly.
 
-Thank you to [MauritsWike](https://github.com/MauritsWilke) for helping me.
+Thank you to [MauritsWilke](https://github.com/MauritsWilke) for helping me.
 
 ## What it Looks Like
 
