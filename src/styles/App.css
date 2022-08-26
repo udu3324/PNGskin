@@ -133,6 +133,10 @@ img.start-image-2 {
   max-width: 33rem;
 }
 
+.hide {
+  display:none;
+}
+
 /* Editor Content */
 div#editor {
   display: none;
