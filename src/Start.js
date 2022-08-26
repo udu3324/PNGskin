@@ -4,6 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUpload } from '@fortawesome/free-solid-svg-icons'
 import { setImage } from ".";
 
+import img1 from './img/DALLE_2022-08-20_21.02.12_-_A_portrait_of_a_cat_wearing_an_har_with_a_background_full_of_pineapples_4k_artstation(dalle-2).webp';
+import img2 from './img/skin-output(dalle-2).webp';
+
 class Start extends React.Component {
     constructor(props) {
         super(props);
@@ -45,12 +48,12 @@ class Start extends React.Component {
                     <div className="start-stacking-divs start-imgdiv-1">
                         <span>Start</span>
                         <br />
-                        <img className="start-image-1" alt="before" src="https://media.discordapp.net/attachments/919010462476152832/1012127567496622100/DALLE_2022-08-20_21.02.12_-_A_portrait_of_a_cat_wearing_an_har_with_a_background_full_of_pineapples_4k_artstation.png"></img>
+                        <img className="start-image-1" alt="before" src={img1}></img>
                     </div>
                     <div className="start-stacking-divs">
                         <span>Finish</span>
                         <br />
-                        <img className="start-image-2" alt="after" src="https://media.discordapp.net/attachments/919010462476152832/1012127567798607882/nice.png"></img>
+                        <img className="start-image-2" alt="after" src={img2}></img>
                     </div>
                     <br />
                     <br />
