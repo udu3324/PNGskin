@@ -1,8 +1,9 @@
 import React from "react";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faDownload } from '@fortawesome/free-solid-svg-icons'
+import { faArrowsRotate, faDownload } from '@fortawesome/free-solid-svg-icons'
 import { image, imageBase64 } from ".";
+import { color, resetColor } from "./Editor";
 
 // tysm https://dev.to/sbodi10/download-images-using-javascript-51a9
 async function downloadImage(imageSrc) {
@@ -24,6 +25,7 @@ class Finish extends React.Component {
         super(props);
 
         this.download = this.download.bind(this);
+        this.restart = this.restart.bind(this);
     }
 
     download() {
@@ -81,9 +83,39 @@ class Finish extends React.Component {
                 20, 52,  //dx, dy
                 4, 12); //dw, dh (same)
 
+            //fill everything else in
+            ctx.fillStyle = color;
+            ctx.fillRect(8, 0, 17, 8);
+
+            ctx.fillRect(0, 8, 8, 8);
+            ctx.fillRect(16, 8, 16, 8);
+
+            ctx.fillRect(4, 16, 8, 4);
+            ctx.fillRect(20, 16, 16, 4);
+            ctx.fillRect(44, 16, 8, 4);
+
+            ctx.fillRect(0, 20, 4, 12);
+            ctx.fillRect(8, 20, 12, 12);
+            ctx.fillRect(28, 20, 16, 12);
+            ctx.fillRect(48, 20, 8, 12);
+
+            ctx.fillRect(20, 48, 8, 4);
+            ctx.fillRect(36, 48, 8, 4);
+
+            ctx.fillRect(16, 52, 4, 12);
+            ctx.fillRect(24, 52, 12, 12);
+            ctx.fillRect(40, 52, 8, 12);
+
             //download it
             downloadImage(canvas.toDataURL())
         })
+    }
+
+    restart() {
+        //close finish and show start
+        document.getElementById('finish').style.display = "none"
+        document.getElementById('start').style.display = "block"
+        resetColor()
     }
 
     render() {
@@ -92,6 +124,7 @@ class Finish extends React.Component {
                 <span className="finish-text">Here's the finished skin.</span>
                 <br />
                 <button onClick={this.download} className="finish-download-button"><FontAwesomeIcon icon={faDownload} /> Download Skin</button>
+                <button onClick={this.restart} className="restart-button"><FontAwesomeIcon icon={faArrowsRotate} /> Restart</button>
                 <br />
                 <img id="finish-img" className="finish-img" src={imageBase64} alt="final skin"></img>
                 <canvas id="finish-canvas"></canvas>
