@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom';
 import './styles/index.css';
 import App from './App';
 import { setCanvasImg } from './Editor';
+import reportWebVitals from './reportWebVitals';
+import { sendToVercelAnalytics } from './Vitals';
 
 export var image = new Image();
 
@@ -43,3 +45,5 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
+
+reportWebVitals(sendToVercelAnalytics);
