@@ -11,6 +11,13 @@ export function resetColor() {
     document.getElementById('clr-input').value = color
 }
 
+export let wrap = false;
+
+export function resetWrap() {
+    wrap = false;
+    document.getElementById('wrap-input').checked = wrap
+}
+
 let sx;
 let sy;
 let sw;
@@ -105,6 +112,7 @@ class Editor extends React.Component {
 
         this.openAdvanced = this.openAdvanced.bind(this);
         this.colorInput = this.colorInput.bind(this);
+        this.wrapInput = this.wrapInput.bind(this);
 
         this.finish = this.finish.bind(this);
     }
@@ -142,6 +150,10 @@ class Editor extends React.Component {
     colorInput() {
         color = document.getElementById('clr-input').value
         sync()
+    }
+
+    wrapInput() {
+        wrap = document.getElementById('wrap-input').checked
     }
 
     finish() {
@@ -192,8 +204,15 @@ class Editor extends React.Component {
                         <button onClick={this.openAdvanced} className="advanced-button"><FontAwesomeIcon icon={faBars} /> Advanced Settings</button>
 
                         <div id="advanced-dropdown-div" className="advanced-dropdown-div">
-                            <input onChange={this.colorInput} type="color" id="clr-input" className="clr-input" />
-                            <span className="editor-input-label"> Rest of Skin Color</span>
+                            <div>
+                                <input onChange={this.colorInput} type="color" id="clr-input" className="clr-input" />
+                                <span className="editor-input-label"> Rest of Skin Color</span>
+                            </div>
+
+                            <div>
+                                <input onClick={this.wrapInput} type="checkbox" id="wrap-input" className="wrap-input" />
+                                <span className="editor-input-label"> Wrap Image (2px)</span>
+                            </div>
                         </div>
                     </div>
 

@@ -222,7 +222,7 @@ span.editor-input-label {
   color: #36393f;
   font-weight: 600;
   width: 20.5rem;
-  margin-top: 2.5rem;
+  margin-top: 1.1rem;
 }
 
 .advanced-dropdown-bg {
@@ -293,6 +293,20 @@ canvas#finish-canvas {
 }
 
 /* Mobile CSS */
+.mobile-btn-seperator-div {
+  display: none;
+}
+
+@media only screen and (max-device-width: 602px) {
+  .restart-button {
+    margin-left: 0rem;
+  }
+
+  .mobile-btn-seperator-div {
+    display: block;
+  }
+}
+
 @media only screen and (max-device-width: 520px) {
   img.start-image-1,
   img.start-image-2 {
