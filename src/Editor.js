@@ -6,17 +6,7 @@ import { imageBase64, setImage } from ".";
 
 export let color = "#000000";
 
-export function resetColor() {
-    color = "#000000";
-    document.getElementById('clr-input').value = color
-}
-
 export let wrap = false;
-
-export function resetWrap() {
-    wrap = false;
-    document.getElementById('wrap-input').checked = wrap
-}
 
 let sx;
 let sy;

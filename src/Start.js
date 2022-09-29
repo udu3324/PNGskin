@@ -8,6 +8,34 @@ import img1 from './img/DALLE_2022-08-20_21.02.12_-_A_portrait_of_a_cat_wearing_
 import img2 from './img/skin-output(dalle-2).webp';
 
 class Start extends React.Component {
+    componentDidMount() {
+        var dropZone = document.getElementById('root');
+
+        //tysm <3 https://stackoverflow.com/a/26580724/16216937
+        // Optional.   Show the copy icon when dragging over.  Seems to only work for chrome.
+        dropZone.addEventListener('dragover', function (e) {
+            e.stopPropagation();
+            e.preventDefault();
+            e.dataTransfer.dropEffect = 'copy';
+        });
+
+        // Get file data on drop
+        dropZone.addEventListener('drop', function (e) {
+            e.stopPropagation();
+            e.preventDefault();
+            var fileList = e.dataTransfer.files; // Array of all files
+            
+            for (let i = 0, numFiles = fileList.length; i < numFiles; i++) {
+                const file = fileList[i];
+                var reader = new FileReader()
+                reader.onload = function (base64) {
+                    //base64.target.result
+                    setImage(base64.target.result)
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+    }
     constructor(props) {
         super(props);
 
@@ -42,7 +70,7 @@ class Start extends React.Component {
             <div id="start">
                 <div className="start-text-div"><span className="start-text">PNGskin is a Minecraft Skin Generator that turns images into skins.</span></div>
                 <button onClick={this.simulateClick} className="upload-image-button"><FontAwesomeIcon icon={faUpload} /> Upload Image</button>
-                <input onClick={this.getFile} type="file" id="upload-file" className="hide" name="filename" accept=".png,.jpg,.jpeg,.jfif,.pjpeg,.pjp" />
+                <input onClick={this.getFile} type="file" id="upload-file" className="hide" name="filename" accept=".png,.jpg,.jpeg,.jfif,.pjpeg,.pjp,.webp" />
                 <br />
                 <div className="start-stack-divs">
                     <div className="start-stacking-divs start-imgdiv-1">

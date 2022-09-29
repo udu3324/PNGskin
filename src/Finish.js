@@ -3,7 +3,7 @@ import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowsRotate, faDownload } from '@fortawesome/free-solid-svg-icons'
 import { image, imageBase64 } from ".";
-import { color, resetColor, wrap } from "./Editor";
+import { color, wrap } from "./Editor";
 
 // tysm https://dev.to/sbodi10/download-images-using-javascript-51a9
 async function downloadImage(imageSrc) {
@@ -288,10 +288,7 @@ class Finish extends React.Component {
     }
 
     restart() {
-        //close finish and show start
-        document.getElementById('finish').style.display = "none"
-        document.getElementById('start').style.display = "block"
-        resetColor()
+        window.location.reload(false)
     }
 
     render() {
