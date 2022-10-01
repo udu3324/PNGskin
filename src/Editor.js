@@ -17,6 +17,8 @@ let dh;
 
 let openedAdvancedMenu = false;
 
+let scaleAspectRatio = false;
+
 //draws the new edited image to the canvas
 function sync() {
     console.log(`${sx} ${sy} ${sw} ${sh}`)
@@ -80,12 +82,15 @@ export function setCanvasImg() {
         document.getElementById('sy').max = image.height
         document.getElementById('sw').max = image.width * 2
         document.getElementById('sh').max = image.height * 2
+        document.getElementById('size-aspect-ratio').max = image.width * 2
+
 
         //set input range value
         document.getElementById('sx').value = sx
         document.getElementById('sy').value = sy
         document.getElementById('sw').value = sw
         document.getElementById('sh').value = sh
+        document.getElementById('size-aspect-ratio').value = sw
 
         sync()
     });
@@ -103,6 +108,7 @@ class Editor extends React.Component {
         this.openAdvanced = this.openAdvanced.bind(this);
         this.colorInput = this.colorInput.bind(this);
         this.wrapInput = this.wrapInput.bind(this);
+        this.aspectRatio = this.aspectRatio.bind(this);
 
         this.finish = this.finish.bind(this);
     }
@@ -127,6 +133,15 @@ class Editor extends React.Component {
         sync()
     }
 
+    sizeAspectRatio() {
+        sh = (document.getElementById('size-aspect-ratio').value * sh) / sw
+        sw = document.getElementById('size-aspect-ratio').value
+
+        document.getElementById('sw').value = sw
+        document.getElementById('sh').value = sh
+        sync()
+    }
+
     openAdvanced() {
         if (openedAdvancedMenu) {
             document.getElementById('advanced-dropdown-div').style.display = "none"
@@ -144,6 +159,18 @@ class Editor extends React.Component {
 
     wrapInput() {
         wrap = document.getElementById('wrap-input').checked
+    }
+
+    aspectRatio() {
+        if (scaleAspectRatio) {
+            scaleAspectRatio = false;
+            document.getElementById('editor-size-control-div').style.display = "block"
+            document.getElementById('editor-aspect-ratio-size-control-div').style.display = "none"
+        } else {
+            scaleAspectRatio = true;
+            document.getElementById('editor-size-control-div').style.display = "none"
+            document.getElementById('editor-aspect-ratio-size-control-div').style.display = "block"
+        }
     }
 
     finish() {
@@ -165,6 +192,7 @@ class Editor extends React.Component {
                     <br />
                     <span>Use the sliders to edit skin.</span>
                 </div>
+
                 <div className="editor-grid-left">
                     <div>
                         <span className="editor-input-label"><FontAwesomeIcon icon={faUpDownLeftRight} /> Move Left & Right</span>
@@ -178,16 +206,24 @@ class Editor extends React.Component {
                         <input id="sy" className="editor-range-input" onChange={this.sy} type="range" min="1" max="100"></input>
                     </div>
 
-                    <div>
-                        <span className="editor-input-label"><FontAwesomeIcon icon={faMaximize} /> Size Left & Right</span>
-                        <br />
-                        <input id="sw" className="editor-range-input invert-input" onChange={this.sw} type="range" min="1" max="100"></input>
+                    <div id="editor-size-control-div">
+                        <div>
+                            <span className="editor-input-label"><FontAwesomeIcon icon={faMaximize} /> Size Left & Right</span>
+                            <br />
+                            <input id="sw" className="editor-range-input invert-input" onChange={this.sw} type="range" min="1" max="100"></input>
+                        </div>
+
+                        <div>
+                            <span className="editor-input-label"><FontAwesomeIcon icon={faMaximize} /> Size Up & Down</span>
+                            <br />
+                            <input id="sh" className="editor-range-input invert-input" onChange={this.sh} type="range" min="1" max="100"></input>
+                        </div>
                     </div>
 
-                    <div>
-                        <span className="editor-input-label"><FontAwesomeIcon icon={faMaximize} /> Size Up & Down</span>
+                    <div id="editor-aspect-ratio-size-control-div" className="editor-aspect-ratio-size-control-div">
+                        <span className="editor-input-label"><FontAwesomeIcon icon={faMaximize} /> Size Aspect Ratio</span>
                         <br />
-                        <input id="sh" className="editor-range-input invert-input" onChange={this.sh} type="range" min="1" max="100"></input>
+                        <input id="size-aspect-ratio" className="editor-range-input invert-input" onChange={this.sizeAspectRatio} type="range" min="1" max="100"></input>
                     </div>
 
                     <div className="advanced-dropdown-bg">
@@ -203,11 +239,17 @@ class Editor extends React.Component {
                                 <input onClick={this.wrapInput} type="checkbox" id="wrap-input" className="wrap-input" />
                                 <span className="editor-input-label"> Wrap Image (2px)</span>
                             </div>
+
+                            <div>
+                                <input onClick={this.aspectRatio} type="checkbox" id="aspect-ratio-input" className="aspect-ratio-input" />
+                                <span className="editor-input-label"> Scale to Aspect Ratio</span>
+                            </div>
                         </div>
                     </div>
 
                     <button onClick={this.finish} className="editor-finish-button"><FontAwesomeIcon icon={faCircleCheck} /> Finish Edit</button>
                 </div>
+
                 <div className="editor-grid-right">
                     <canvas id="editor-canvas"></canvas>
                 </div>

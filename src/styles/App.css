@@ -260,6 +260,9 @@ span.editor-input-label {
   border-radius: 1rem;
   border: none;
 }
+.editor-aspect-ratio-size-control-div {
+  display: none;
+}
 
 /* Finish Content */
 div#finish {
