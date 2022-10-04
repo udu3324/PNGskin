@@ -148,7 +148,7 @@ span.editor-text {
   display: inline-block;
 }
 
-canvas#editor-canvas {
+.editor-canvas {
   image-rendering: optimizeSpeed;
   /* Older versions of FF          */
   image-rendering: -moz-crisp-edges;
@@ -162,8 +162,7 @@ canvas#editor-canvas {
   -ms-interpolation-mode: nearest-neighbor;
   /* IE                            */
   transform: scale(13);
-  -webkit-transform-origin-x: 0.34rem;
-  -webkit-transform-origin-y: 0;
+  transform-origin: left top;
 }
 
 span.editor-input-label {
@@ -208,6 +207,7 @@ span.editor-input-label {
 
 .editor-grid-right {
   grid-area: preview;
+  width: 9rem;
 }
 
 .editor-grid {
@@ -341,13 +341,13 @@ canvas#finish-canvas {
     gap: 0.5rem;
   }
 
-  canvas#editor-canvas {
+  .editor-canvas {
     image-rendering: optimizeSpeed;
     image-rendering: -o-crisp-edges;
     image-rendering: pixelated;
     -ms-interpolation-mode: nearest-neighbor;
     transform: scale(17);
-    -webkit-transform-origin-x: -0.14rem;
+    -webkit-transform-origin-x: -0.12rem;
     -webkit-transform-origin-y: 0;
     padding-bottom: 0.1rem;
   }

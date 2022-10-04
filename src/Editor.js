@@ -251,7 +251,7 @@ class Editor extends React.Component {
                 </div>
 
                 <div className="editor-grid-right">
-                    <canvas id="editor-canvas"></canvas>
+                    <canvas id="editor-canvas" className="editor-canvas"></canvas>
                 </div>
             </div>
         );
