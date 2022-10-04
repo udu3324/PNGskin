@@ -243,6 +243,7 @@ span.editor-input-label {
   width: 20.5rem;
   font-size: 1.6rem;
   padding: 0.4rem 0rem 0.4rem 0rem;
+  background-color: #52bbff;
 }
 
 .clr-input {
@@ -262,6 +263,23 @@ span.editor-input-label {
 }
 .editor-aspect-ratio-size-control-div {
   display: none;
+}
+
+.editor-precise-div {
+  width: 20.5rem;
+  margin-top: -0.5rem;
+  display: none;
+}
+
+.editor-precise-button {
+  color: #36393f;
+  padding: 0rem 1.3rem;
+  font-size: 1.5rem;
+  background-color: #04aa6d;
+}
+
+.editor-precise-left-button {
+  margin-left: 13.5rem;
 }
 
 /* Finish Content */
