@@ -6,6 +6,10 @@ import { getCookie, imageBase64, setCookie, setImage } from ".";
 
 export let color = "#000000";
 
+export function resetColor() {
+    color = "#000000"
+}
+
 export let wrap = false;
 
 var interval = 5

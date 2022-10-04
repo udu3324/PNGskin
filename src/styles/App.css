@@ -297,16 +297,15 @@ img.finish-img {
   color: #36393f;
   font-weight: 600;
   margin-top: 1rem;
-  margin-bottom: 1.5rem;
 }
 
-.restart-button {
+.finish-upload-button {
   color: #36393f;
   font-weight: 600;
   margin-top: 1rem;
   margin-bottom: 1.5rem;
   margin-left: 2rem;
-  background-color: #ff8100;
+  background-color: #ff9b61;
 }
 
 canvas#finish-canvas {
@@ -319,7 +318,7 @@ canvas#finish-canvas {
 }
 
 @media only screen and (max-device-width: 602px) {
-  .restart-button {
+  .finish-upload-button {
     margin-left: 0rem;
   }
 

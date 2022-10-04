@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import './styles/index.css';
 import App from './App';
-import { setCanvasImg } from './Editor';
+import { resetColor, setCanvasImg } from './Editor';
 import reportWebVitals from './reportWebVitals';
 import { sendToVercelAnalytics } from './Vitals';
 
@@ -24,6 +24,8 @@ export function setImage(base64) {
     //stop showing the start content
     document.getElementById('start').style.display = "none"
 
+    document.getElementById('finish').style.display = "none"
+    resetColor()
     imageBase64 = image.src
 
     //show the editor or final based on image size

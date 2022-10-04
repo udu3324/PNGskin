@@ -1,8 +1,8 @@
 import React from "react";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowsRotate, faDownload } from '@fortawesome/free-solid-svg-icons'
-import { image, imageBase64 } from ".";
+import { faDownload, faUpload } from '@fortawesome/free-solid-svg-icons'
+import { image, imageBase64, setImage } from ".";
 import { color, wrap } from "./Editor";
 
 // tysm https://dev.to/sbodi10/download-images-using-javascript-51a9
@@ -25,7 +25,9 @@ class Finish extends React.Component {
         super(props);
 
         this.download = this.download.bind(this);
-        this.restart = this.restart.bind(this);
+
+        this.simulateClick = this.simulateClick.bind(this);
+        this.getFile = this.getFile.bind(this);
     }
 
     download() {
@@ -287,8 +289,26 @@ class Finish extends React.Component {
         })
     }
 
-    restart() {
-        window.location.reload(false)
+    simulateClick() {
+        document.getElementById('upload-file').click();
+    }
+
+    getFile() {
+        const inputElement = document.getElementById('upload-file');
+
+        inputElement.addEventListener("change", function () {
+            const fileList = this.files;
+
+            for (let i = 0, numFiles = fileList.length; i < numFiles; i++) {
+                const file = fileList[i];
+                var reader = new FileReader()
+                reader.onload = function (base64) {
+                    //base64.target.result
+                    setImage(base64.target.result)
+                }
+                reader.readAsDataURL(file);
+            }
+        })
     }
 
     render() {
@@ -296,9 +316,10 @@ class Finish extends React.Component {
             <div id="finish">
                 <span className="finish-text">Here's the finished skin.</span>
                 <br />
-                <button onClick={this.download} className="finish-download-button"><FontAwesomeIcon icon={faDownload} /> Download Skin</button>
+                <button onClick={this.download} className="finish-download-button"><FontAwesomeIcon icon={faDownload} /> Download</button>
                 <div className="mobile-btn-seperator-div"></div>
-                <button onClick={this.restart} className="restart-button"><FontAwesomeIcon icon={faArrowsRotate} /> Restart</button>
+                <button onClick={this.simulateClick} className="finish-upload-button"><FontAwesomeIcon icon={faUpload} /> New Skin</button>
+                <input onClick={this.getFile} type="file" id="upload-file" className="hide" name="filename" accept=".png,.jpg,.jpeg,.jfif,.pjpeg,.pjp,.webp" />
                 <br />
                 <img id="finish-img" className="finish-img" src={imageBase64} alt="final skin"></img>
                 <canvas id="finish-canvas"></canvas>
