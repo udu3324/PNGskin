@@ -22,10 +22,11 @@ let dw;
 let dh;
 
 let openedAdvancedMenu = false;
-
 let scaleAspectRatio = false;
-
 let precise = false;
+
+let unchangedWidth = 0;
+let unchangedHeight = 0;
 
 //draws the new edited image to the canvas
 function sync() {
@@ -78,6 +79,9 @@ export function setCanvasImg() {
         sw = image.width
         sh = image.height
 
+        unchangedWidth = image.width
+        unchangedHeight = image.height
+
         dw = (32 * image.width) / image.height
         dh = 32
 
@@ -129,18 +133,22 @@ class Editor extends React.Component {
         this.sx = this.sx.bind(this);
         this.sxM = this.sxM.bind(this);
         this.sxP = this.sxP.bind(this);
+        this.sxR = this.sxR.bind(this);
 
         this.sy = this.sy.bind(this);
         this.syM = this.syM.bind(this);
         this.syP = this.syP.bind(this);
+        this.syR = this.syR.bind(this);
 
         this.sw = this.sw.bind(this);
         this.swM = this.swM.bind(this);
         this.swP = this.swP.bind(this);
+        this.swR = this.swR.bind(this);
 
         this.sh = this.sh.bind(this);
         this.shM = this.shM.bind(this);
         this.shP = this.shP.bind(this);
+        this.shR = this.shR.bind(this);
 
         this.openAdvanced = this.openAdvanced.bind(this);
         this.colorInput = this.colorInput.bind(this);
@@ -148,6 +156,7 @@ class Editor extends React.Component {
         this.aspectRatio = this.aspectRatio.bind(this);
         this.arM = this.arM.bind(this);
         this.arP = this.arP.bind(this);
+        this.arR = this.arR.bind(this);
         this.preciseEditing = this.preciseEditing.bind(this);
 
         this.finish = this.finish.bind(this);
@@ -170,6 +179,12 @@ class Editor extends React.Component {
         sync()
     }
 
+    sxR() {
+        sx = 0
+        document.getElementById('sx').value = 0
+        sync()
+    }
+
     sy() {
         sy = document.getElementById('sy').value
         sync()
@@ -184,6 +199,12 @@ class Editor extends React.Component {
     syP() {
         sy = parseInt(document.getElementById('sy').value) + interval
         document.getElementById('sy').value = sy
+        sync()
+    }
+
+    syR() {
+        sy = 0
+        document.getElementById('sy').value = 0
         sync()
     }
 
@@ -204,6 +225,12 @@ class Editor extends React.Component {
         sync()
     }
 
+    swR() {
+        sw = unchangedWidth
+        document.getElementById('sw').value = unchangedWidth
+        sync()
+    }
+
     sh() {
         sh = document.getElementById('sh').value
         sync()
@@ -218,6 +245,12 @@ class Editor extends React.Component {
     shP() {
         sh = parseInt(document.getElementById('sh').value) + interval
         document.getElementById('sh').value = sh
+        sync()
+    }
+
+    shR() {
+        sh = unchangedHeight
+        document.getElementById('sh').value = unchangedHeight
         sync()
     }
 
@@ -293,6 +326,17 @@ class Editor extends React.Component {
         sync()
     }
 
+    arR() {
+        sw = unchangedWidth
+        sh = unchangedHeight
+        
+        document.getElementById('size-aspect-ratio').value = unchangedWidth
+
+        document.getElementById('sw').value = unchangedWidth
+        document.getElementById('sh').value = unchangedHeight
+        sync()
+    }
+
     preciseEditing() {
         if (precise) {
             setCookie("preciseedit", "false", 9999999999)
@@ -337,7 +381,11 @@ class Editor extends React.Component {
 
                 <div className="editor-grid-left">
                     <div>
-                        <span className="editor-input-label"><FontAwesomeIcon icon={faUpDownLeftRight} /> Move Left & Right</span>
+                        <div className="editor-label-stack">
+                            <span className="editor-input-label"><FontAwesomeIcon icon={faUpDownLeftRight} /> Move Left & Right</span>
+                            <button onClick={this.sxR} className="editor-reset-btn">Reset</button>
+                        </div>
+
                         <input id="sx" className="editor-range-input" onChange={this.sx} type="range" min="1" max="100"></input>
 
                         <div id="precise-div-1" className="editor-precise-div">
@@ -347,7 +395,11 @@ class Editor extends React.Component {
                     </div>
 
                     <div>
-                        <span className="editor-input-label"><FontAwesomeIcon icon={faUpDownLeftRight} /> Move Up & Down</span>
+                        <div className="editor-label-stack">
+                            <span className="editor-input-label"><FontAwesomeIcon icon={faUpDownLeftRight} /> Move Up & Down</span>
+                            <button onClick={this.syR} className="editor-reset-btn">Reset</button>
+                        </div>
+
                         <input id="sy" className="editor-range-input" onChange={this.sy} type="range" min="1" max="100"></input>
 
                         <div id="precise-div-2" className="editor-precise-div">
@@ -358,7 +410,11 @@ class Editor extends React.Component {
 
                     <div id="editor-size-control-div">
                         <div>
-                            <span className="editor-input-label"><FontAwesomeIcon icon={faMaximize} /> Size Left & Right</span>
+                            <div className="editor-label-stack">
+                                <span className="editor-input-label"><FontAwesomeIcon icon={faMaximize} /> Size Left & Right</span>
+                                <button onClick={this.swR} className="editor-reset-btn">Reset</button>
+                            </div>
+
                             <input id="sw" className="editor-range-input invert-input" onChange={this.sw} type="range" min="1" max="100"></input>
 
                             <div id="precise-div-3" className="editor-precise-div">
@@ -368,7 +424,11 @@ class Editor extends React.Component {
                         </div>
 
                         <div>
-                            <span className="editor-input-label"><FontAwesomeIcon icon={faMaximize} /> Size Up & Down</span>
+                            <div className="editor-label-stack">
+                                <span className="editor-input-label"><FontAwesomeIcon icon={faMaximize} /> Size Up & Down</span>
+                                <button onClick={this.shR} className="editor-reset-btn">Reset</button>
+                            </div>
+
                             <input id="sh" className="editor-range-input invert-input" onChange={this.sh} type="range" min="1" max="100"></input>
 
                             <div id="precise-div-4" className="editor-precise-div">
@@ -379,7 +439,11 @@ class Editor extends React.Component {
                     </div>
 
                     <div id="editor-aspect-ratio-size-control-div" className="editor-aspect-ratio-size-control-div">
-                        <span className="editor-input-label"><FontAwesomeIcon icon={faMaximize} /> Size Aspect Ratio</span>
+                        <div className="editor-label-stack">
+                            <span className="editor-input-label"><FontAwesomeIcon icon={faMaximize} /> Size Aspect Ratio</span>
+                            <button onClick={this.arR} className="editor-reset-btn">Reset</button>
+                        </div>
+
                         <input id="size-aspect-ratio" className="editor-range-input invert-input" onChange={this.sizeAspectRatio} type="range" min="1" max="100"></input>
 
                         <div id="precise-div-5" className="editor-precise-div">

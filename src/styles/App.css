@@ -267,19 +267,34 @@ span.editor-input-label {
 
 .editor-precise-div {
   width: 20.5rem;
-  margin-top: -0.5rem;
+  margin-top: -1rem;
   display: none;
+  margin-bottom: 0.5rem;
 }
 
 .editor-precise-button {
   color: #36393f;
   padding: 0rem 1.3rem;
-  font-size: 1.5rem;
+  font-size: 1rem;
+  font-weight: 800;
   background-color: #04aa6d;
 }
 
 .editor-precise-left-button {
-  margin-left: 13.5rem;
+  margin-left: 14rem;
+}
+
+.editor-label-stack {
+  width: 20.5rem;
+}
+
+.editor-reset-btn {
+  font-size: 1.1rem;
+  margin-top: 0.8rem;
+  color: #36393f;
+  background-color: #e3505f;
+  font-weight: 900;
+  float: right;
 }
 
 /* Finish Content */
