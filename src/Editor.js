@@ -6,11 +6,6 @@ import { getCookie, imageBase64, setCookie, setImage } from ".";
 
 export let color = "#000000";
 
-export function resetColor() {
-    color = "#000000"
-    document.getElementById('clr-input').value = "#000000"
-}
-
 export let wrap = false;
 
 var interval = 5
@@ -104,6 +99,10 @@ export function setCanvasImg() {
         document.getElementById('sw').value = sw
         document.getElementById('sh').value = sh
         document.getElementById('size-aspect-ratio').value = sw
+        
+        //set bg color here
+        color = "#000000"
+        document.getElementById('clr-input').value = "#000000"
 
         sync()
     });
