@@ -19,14 +19,15 @@ button {
   border-radius: 1rem;
   font-size: 2.1rem;
   transition: 0.4s;
+  cursor: pointer;
 }
 
 button:hover {
-  filter: brightness(85%);
+  filter: brightness(80%);
 }
 
 button:disabled {
-  filter: brightness(75%);
+  filter: brightness(65%);
 }
 
 /* Navigation Bar */
@@ -47,6 +48,8 @@ button#info {
   height: 3rem;
   width: 3rem;
   margin-left: auto;
+  color: #212326;
+  font-weight: 900;
 }
 
 a {
@@ -76,6 +79,7 @@ a {
 
 img#github-repo {
   border-radius: 0.5rem;
+  height: 3rem;
 }
 
 p#title {
@@ -85,9 +89,12 @@ p#title {
 }
 
 .info-close-button {
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   border-radius: 0.5rem;
   margin-top: 0.8rem;
+  color: #16181c;
+  font-weight: 700;
+  padding: 0.45rem 1rem;
 }
 
 /* App Contents */

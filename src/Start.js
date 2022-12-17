@@ -76,7 +76,7 @@ class Start extends React.Component {
                     <div className="start-stacking-divs start-imgdiv-1">
                         <span>Start</span>
                         <br />
-                        <img className="start-image-1" alt="before" src={img1}></img>
+                        <img className="start-image-1" alt="before" title="this image was made by ai btw" src={img1}></img>
                     </div>
                     <div className="start-stacking-divs">
                         <span>Finish</span>
