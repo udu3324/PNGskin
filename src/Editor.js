@@ -8,6 +8,7 @@ export let color = "#000000";
 
 export function resetColor() {
     color = "#000000"
+    document.getElementById('clr-input').value = "#000000"
 }
 
 export let wrap = false;

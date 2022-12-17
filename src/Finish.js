@@ -3,7 +3,7 @@ import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDownload, faUpload } from '@fortawesome/free-solid-svg-icons'
 import { image, imageBase64, setImage } from ".";
-import { color, wrap } from "./Editor";
+import { wrap } from "./Editor";
 
 // tysm https://dev.to/sbodi10/download-images-using-javascript-51a9
 async function downloadImage(imageSrc) {
@@ -44,7 +44,7 @@ class Finish extends React.Component {
 
         finishedImage.addEventListener('load', () => {
             //fill everything else in
-            ctx.fillStyle = color;
+            ctx.fillStyle = document.getElementById('clr-input').value;
             ctx.fillRect(8, 0, 16, 8);
 
             ctx.fillRect(0, 8, 8, 8);
