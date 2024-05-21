@@ -18,11 +18,11 @@ Thank you to [MauritsWilke](https://github.com/MauritsWilke) for helping me.
 
 ## What it Looks Like
 
-![1](https://cdn.discordapp.com/attachments/919010462476152832/1012146301095379034/unknown.png)
+![1](https://raw.githubusercontent.com/udu3324/PNGskin/master/src/img/1.png)
 
-![2](https://cdn.discordapp.com/attachments/919010462476152832/1012146498043117688/unknown.png)
+![2](https://raw.githubusercontent.com/udu3324/PNGskin/master/src/img/2.png)
 
-![3](https://cdn.discordapp.com/attachments/919010462476152832/1012146987069607997/unknown.png)
+![3](https://raw.githubusercontent.com/udu3324/PNGskin/master/src/img/3.png)
 
 ## Installation and Running
 
