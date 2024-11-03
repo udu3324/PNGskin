@@ -7,9 +7,11 @@ class Content extends React.Component {
     render() {
         return (
             <div className="contents">
-                <Start />
-                <Editor />
-                <Finish />
+                <div className="innerContents">
+                    <Start />
+                    <Editor />
+                    <Finish />
+                </div>
             </div>
         );
     }

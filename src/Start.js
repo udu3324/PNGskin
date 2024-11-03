@@ -1,7 +1,7 @@
 import React from "react";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUpload } from '@fortawesome/free-solid-svg-icons'
+import { faArrowRight, faUpload } from '@fortawesome/free-solid-svg-icons'
 import { setImage } from ".";
 
 import img1 from './img/DALLE_2022-08-20_21.02.12_-_A_portrait_of_a_cat_wearing_an_har_with_a_background_full_of_pineapples_4k_artstation(dalle-2).webp';
@@ -68,7 +68,8 @@ class Start extends React.Component {
     render() {
         return (
             <div id="start">
-                <div className="start-text-div"><span className="start-text">PNGskin is a Minecraft Skin Generator that turns images into skins.</span></div>
+                <span className="start-text">PNGskin is a Minecraft Skin Generator that turns images into skins.</span>
+                <br />
                 <button onClick={this.simulateClick} className="upload-image-button"><FontAwesomeIcon icon={faUpload} /> Upload Image</button>
                 <input onClick={this.getFile} type="file" id="upload-file" className="hide" name="filename" accept=".png,.jpg,.jpeg,.jfif,.pjpeg,.pjp,.webp" />
                 <br />
@@ -77,6 +78,9 @@ class Start extends React.Component {
                         <span>Start</span>
                         <br />
                         <img className="start-image-1" alt="before" title="this image was made by ai btw" src={img1}/>
+                    </div>
+                    <div className="start-stack-divs arrowStart">
+                        <FontAwesomeIcon icon={faArrowRight} />
                     </div>
                     <div className="start-stacking-divs">
                         <span>Finish</span>

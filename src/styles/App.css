@@ -2,6 +2,10 @@
   font-family: "JetBrains Mono", monospace;
 }
 
+:root {
+  --page-size: 45rem;
+}
+
 /* App Itself */
 .App {
   background-color: #36393f;
@@ -41,7 +45,7 @@ button:disabled {
 
 .innerNav {
   width: 100%;
-  max-width: 800px
+  max-width: var(--page-size)
 }
 
 span#credits {
@@ -113,6 +117,10 @@ p#title {
   padding: 1rem;
 }
 
+.innerContents {
+  max-width: var(--page-size)
+}
+
 /* Start Content */
 span.start-text {
   color: #00ff90;
@@ -133,6 +141,7 @@ img.start-image-2 {
 .start-stack-divs {
   overflow: hidden;
   display: flex;
+  
 }
 
 .start-stacking-divs {
@@ -140,11 +149,13 @@ img.start-image-2 {
 }
 
 .start-imgdiv-1 {
-  padding-right: 2rem;
+  margin-right: 1rem;
 }
-
-.start-text-div {
-  max-width: 33rem;
+.arrowStart {
+  align-items: center;
+  padding-left: 4rem;
+  padding-right: 5rem;
+  font-size: 100px;
 }
 
 .hide {
@@ -346,6 +357,14 @@ canvas#finish-canvas {
   display: none;
 }
 
+/* display: none; */
+@media only screen and (max-device-width: 718px) {
+  .arrowStart {
+    padding-left: 0;
+    padding-right: 1rem;
+  }
+}
+
 @media only screen and (max-device-width: 602px) {
   .finish-upload-button {
     margin-left: 0rem;
@@ -353,6 +372,10 @@ canvas#finish-canvas {
 
   .mobile-btn-seperator-div {
     display: block;
+  }
+
+  .arrowStart {
+    display: none;
   }
 }
 
