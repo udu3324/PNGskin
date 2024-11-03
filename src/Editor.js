@@ -1,11 +1,12 @@
 import React from "react";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faCircleCheck, faMaximize, faUpDownLeftRight } from '@fortawesome/free-solid-svg-icons'
+import { faArrowsRotate, faBars, faCircleCheck, faMaximize, faUpDownLeftRight } from '@fortawesome/free-solid-svg-icons'
 import { getCookie, imageBase64, setCookie, setImage } from ".";
 
 export let color = "#000000";
 
+export let mirror = false;
 export let wrap = false;
 
 var interval = 5
@@ -110,6 +111,16 @@ export function setCanvasImg() {
 
 class Editor extends React.Component {
     componentDidMount() {
+        //default
+        if (getCookie("aspectratio") === "") {
+            setCookie("aspectratio", "true")
+        }
+
+        if (getCookie("mirrorback") === "true") {
+            document.getElementById('mirror-input').checked = true
+            this.mirrorInput()
+            console.log("mirror back has been automatically set")
+        }
         if (getCookie("wrapimage") === "true") {
             document.getElementById('wrap-input').checked = true
             this.wrapInput()
@@ -152,6 +163,7 @@ class Editor extends React.Component {
 
         this.openAdvanced = this.openAdvanced.bind(this);
         this.colorInput = this.colorInput.bind(this);
+        this.mirrorInput = this.mirrorInput.bind(this);
         this.wrapInput = this.wrapInput.bind(this);
         this.aspectRatio = this.aspectRatio.bind(this);
         this.arM = this.arM.bind(this);
@@ -278,6 +290,16 @@ class Editor extends React.Component {
         sync()
     }
 
+    mirrorInput() {
+        if (mirror) {
+            setCookie("mirrorback", "false", 9999999999)
+            mirror = false;
+        } else {
+            setCookie("mirrorback", "true", 9999999999)
+            mirror = true;
+        }
+    }
+
     wrapInput() {
         if (wrap) {
             setCookie("wrapimage", "false", 9999999999)
@@ -383,7 +405,7 @@ class Editor extends React.Component {
                     <div>
                         <div className="editor-label-stack">
                             <span className="editor-input-label"><FontAwesomeIcon icon={faUpDownLeftRight} /> Move Left & Right</span>
-                            <button onClick={this.sxR} className="editor-reset-btn">Reset</button>
+                            <button onClick={this.sxR} className="editor-reset-btn"><FontAwesomeIcon icon={faArrowsRotate} /></button>
                         </div>
 
                         <input id="sx" className="editor-range-input" onChange={this.sx} type="range" min="1" max="100"></input>
@@ -397,7 +419,7 @@ class Editor extends React.Component {
                     <div>
                         <div className="editor-label-stack">
                             <span className="editor-input-label"><FontAwesomeIcon icon={faUpDownLeftRight} /> Move Up & Down</span>
-                            <button onClick={this.syR} className="editor-reset-btn">Reset</button>
+                            <button onClick={this.syR} className="editor-reset-btn"><FontAwesomeIcon icon={faArrowsRotate} /></button>
                         </div>
 
                         <input id="sy" className="editor-range-input" onChange={this.sy} type="range" min="1" max="100"></input>
@@ -412,7 +434,7 @@ class Editor extends React.Component {
                         <div>
                             <div className="editor-label-stack">
                                 <span className="editor-input-label"><FontAwesomeIcon icon={faMaximize} /> Size Left & Right</span>
-                                <button onClick={this.swR} className="editor-reset-btn">Reset</button>
+                                <button onClick={this.swR} className="editor-reset-btn"><FontAwesomeIcon icon={faArrowsRotate} /></button>
                             </div>
 
                             <input id="sw" className="editor-range-input invert-input" onChange={this.sw} type="range" min="1" max="100"></input>
@@ -426,7 +448,7 @@ class Editor extends React.Component {
                         <div>
                             <div className="editor-label-stack">
                                 <span className="editor-input-label"><FontAwesomeIcon icon={faMaximize} /> Size Up & Down</span>
-                                <button onClick={this.shR} className="editor-reset-btn">Reset</button>
+                                <button onClick={this.shR} className="editor-reset-btn"><FontAwesomeIcon icon={faArrowsRotate} /></button>
                             </div>
 
                             <input id="sh" className="editor-range-input invert-input" onChange={this.sh} type="range" min="1" max="100"></input>
@@ -441,7 +463,7 @@ class Editor extends React.Component {
                     <div id="editor-aspect-ratio-size-control-div" className="editor-aspect-ratio-size-control-div">
                         <div className="editor-label-stack">
                             <span className="editor-input-label"><FontAwesomeIcon icon={faMaximize} /> Size Aspect Ratio</span>
-                            <button onClick={this.arR} className="editor-reset-btn">Reset</button>
+                            <button onClick={this.arR} className="editor-reset-btn"><FontAwesomeIcon icon={faArrowsRotate} /></button>
                         </div>
 
                         <input id="size-aspect-ratio" className="editor-range-input invert-input" onChange={this.sizeAspectRatio} type="range" min="1" max="100"></input>
@@ -459,6 +481,11 @@ class Editor extends React.Component {
                             <div>
                                 <input onChange={this.colorInput} type="color" id="clr-input" className="clr-input" />
                                 <span className="editor-input-label"> Rest of Skin Color</span>
+                            </div>
+
+                            <div>
+                                <input onClick={this.mirrorInput} type="checkbox" id="mirror-input" className="mirror-input" />
+                                <span className="editor-input-label"> Mirror Back</span>
                             </div>
 
                             <div>

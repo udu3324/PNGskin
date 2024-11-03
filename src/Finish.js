@@ -3,7 +3,7 @@ import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDownload, faUpload } from '@fortawesome/free-solid-svg-icons'
 import { image, imageBase64, setImage } from ".";
-import { wrap } from "./Editor";
+import { wrap, mirror } from "./Editor";
 
 // tysm https://dev.to/sbodi10/download-images-using-javascript-51a9
 async function downloadImage(imageSrc) {
@@ -280,6 +280,50 @@ class Finish extends React.Component {
                     2, 12,  //sw, sh (same)
                     24, 52,  //dx, dy
                     2, 12); //dw, dh (same)
+            }
+
+            if (mirror) {
+                //head
+                ctx.drawImage(image,
+                    4, 0,  //sx, sy
+                    8, 8,  //sw, sh (same)
+                    24, 8,  //dx, dy
+                    8, 8); //dw, dh (same)
+                
+                //body
+                ctx.drawImage(image,
+                    4, 8,  //sx, sy
+                    8, 12,  //sw, sh (same)
+                    32, 20,  //dx, dy
+                    8, 12); //dw, dh (same)
+
+                //left arm
+                ctx.drawImage(image,
+                    0, 8,  //sx, sy
+                    4, 12,  //sw, sh (same)
+                    44, 52,  //dx, dy
+                    4, 12); //dw, dh (same)
+
+                //right arm
+                ctx.drawImage(image,
+                    12, 8,  //sx, sy
+                    4, 12,  //sw, sh (same)
+                    52, 20,  //dx, dy
+                    4, 12); //dw, dh (same)
+
+                //left leg
+                ctx.drawImage(image,
+                    4, 20,  //sx, sy
+                    4, 12,  //sw, sh (same)
+                    28, 52,  //dx, dy
+                    4, 12); //dw, dh (same)
+
+                //right leg
+                ctx.drawImage(image,
+                    8, 20,  //sx, sy
+                    4, 12,  //sw, sh (same)
+                    12, 20,  //dx, dy
+                    4, 12); //dw, dh (same)
             }
 
 

@@ -226,7 +226,7 @@ span.editor-input-label {
 
 .editor-grid-left {
   grid-area: sliders;
-  margin-top: -1rem;
+  margin-top: 1rem;
   width: 17rem;
 }
 
@@ -314,8 +314,10 @@ span.editor-input-label {
 }
 
 .editor-reset-btn {
-  font-size: 1.1rem;
-  margin-top: 0.8rem;
+  font-size: 1.2rem;
+  width: 2rem;
+  height: 2rem;
+  margin-top: 0.7rem;
   color: #36393f;
   background-color: #e3505f;
   font-weight: 900;
