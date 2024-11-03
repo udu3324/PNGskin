@@ -17,9 +17,11 @@ class Nav extends React.Component {
     render() {
         return (
             <div className="nav">
-                <a href="/"><span id="title"><FontAwesomeIcon icon={faImage} /> PNGskin <FontAwesomeIcon icon={faCubes} /></span></a>
-        
-                <button onClick={this.openInfo} id="info">i</button>
+                <div className="innerNav">
+                    <a href="/"><span id="title"><FontAwesomeIcon icon={faImage} /> PNGskin <FontAwesomeIcon icon={faCubes} /></span></a>
+                            
+                    <button type="button" onClick={this.openInfo} id="info">i</button>
+                </div>
             </div>
         );
     }

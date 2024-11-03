@@ -39,6 +39,11 @@ button:disabled {
   font-size: 2.19rem;
 }
 
+.innerNav {
+  width: 100%;
+  max-width: 800px
+}
+
 span#credits {
   font-size: 1rem;
   color: #36393e;
@@ -47,9 +52,11 @@ span#credits {
 button#info {
   height: 3rem;
   width: 3rem;
-  margin-left: auto;
   color: #212326;
   font-weight: 900;
+  margin-left: auto;
+  display: block; 
+  margin-top: -3rem;
 }
 
 a {

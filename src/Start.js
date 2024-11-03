@@ -13,22 +13,22 @@ class Start extends React.Component {
 
         //tysm <3 https://stackoverflow.com/a/26580724/16216937
         // Optional.   Show the copy icon when dragging over.  Seems to only work for chrome.
-        dropZone.addEventListener('dragover', function (e) {
+        dropZone.addEventListener('dragover', (e) => {
             e.stopPropagation();
             e.preventDefault();
             e.dataTransfer.dropEffect = 'copy';
         });
 
         // Get file data on drop
-        dropZone.addEventListener('drop', function (e) {
+        dropZone.addEventListener('drop', (e) => {
             e.stopPropagation();
             e.preventDefault();
-            var fileList = e.dataTransfer.files; // Array of all files
+            const fileList = e.dataTransfer.files; // Array of all files
             
             for (let i = 0, numFiles = fileList.length; i < numFiles; i++) {
                 const file = fileList[i];
-                var reader = new FileReader()
-                reader.onload = function (base64) {
+                const reader = new FileReader()
+                reader.onload = (base64) => {
                     //base64.target.result
                     setImage(base64.target.result)
                 }
@@ -55,8 +55,8 @@ class Start extends React.Component {
 
             for (let i = 0, numFiles = fileList.length; i < numFiles; i++) {
                 const file = fileList[i];
-                var reader = new FileReader()
-                reader.onload = function (base64) {
+                const reader = new FileReader()
+                reader.onload = (base64) => {
                     //base64.target.result
                     setImage(base64.target.result)
                 }
@@ -76,12 +76,12 @@ class Start extends React.Component {
                     <div className="start-stacking-divs start-imgdiv-1">
                         <span>Start</span>
                         <br />
-                        <img className="start-image-1" alt="before" title="this image was made by ai btw" src={img1}></img>
+                        <img className="start-image-1" alt="before" title="this image was made by ai btw" src={img1}/>
                     </div>
                     <div className="start-stacking-divs">
                         <span>Finish</span>
                         <br />
-                        <img className="start-image-2" alt="after" src={img2}></img>
+                        <img className="start-image-2" alt="after" src={img2}/>
                     </div>
                     <br />
                     <br />
