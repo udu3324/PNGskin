@@ -111,9 +111,15 @@ export function setCanvasImg() {
 
 class Editor extends React.Component {
     componentDidMount() {
-        //default
+        //default settings if it hasn't been set yet
         if (getCookie("aspectratio") === "") {
             setCookie("aspectratio", "true")
+        }
+        if (getCookie("wrapimage") === "") {
+            setCookie("wrapimage", "true")
+        }
+        if (getCookie("mirrorback") === "") {
+            setCookie("mirrorback", "true")
         }
 
         if (getCookie("mirrorback") === "true") {

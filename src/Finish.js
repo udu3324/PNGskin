@@ -32,9 +32,9 @@ class Finish extends React.Component {
 
     download() {
         console.log("generating the skin")
-        const finishedImage = new Image(),
-            canvas = document.getElementById('finish-canvas'),
-            ctx = canvas.getContext('2d');
+        const finishedImage = new Image()
+        const canvas = document.getElementById('finish-canvas')
+        const ctx = canvas.getContext('2d')
 
         ctx.canvas.width = 64
         ctx.canvas.height = 64
