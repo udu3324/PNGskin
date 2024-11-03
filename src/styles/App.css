@@ -419,5 +419,6 @@ canvas#finish-canvas {
     -webkit-transform-origin-x: -0.12rem;
     -webkit-transform-origin-y: 0;
     padding-bottom: 0.1rem;
+    padding-top: 0.05rem;
   }
 }

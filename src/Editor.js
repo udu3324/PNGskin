@@ -376,7 +376,7 @@ class Editor extends React.Component {
                 <div className="editor-grid-top">
                     <span className="editor-text">Edit Image</span>
                     <br />
-                    <span>Use the sliders to edit skin.</span>
+                    <span>Use the sliders to edit the skin to your liking.</span>
                 </div>
 
                 <div className="editor-grid-left">
