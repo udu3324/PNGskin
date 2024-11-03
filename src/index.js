@@ -7,16 +7,16 @@ import { setCanvasImg } from './Editor';
 import reportWebVitals from './reportWebVitals';
 import { sendToVercelAnalytics } from './Vitals';
 
-export var image = new Image();
+export const image = new Image();
 
-export var imageBase64;
+export let imageBase64;
 
 export function setImage(base64) {
   console.log("img has been set. ")
 
   image.src = base64;
 
-  image.onload = function () {
+  image.onload = () => {
     //stop if image is too small
     if (image.width < 16 || image.height < 32) 
       return alert("The image you uploaded is too small!")
@@ -46,14 +46,14 @@ export function setImage(base64) {
 export function setCookie(cname, cvalue, exdays) {
   const d = new Date();
   d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-  let expires = "expires=" + d.toUTCString();
-  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  const expires = `expires=${d.toUTCString()}`;
+  document.cookie = `${cname}=${cvalue};${expires};path=/`;
 }
 
 export function getCookie(cname) {
-  let name = cname + "=";
-  let decodedCookie = decodeURIComponent(document.cookie);
-  let ca = decodedCookie.split(';');
+  const name = `${cname}=`;
+  const decodedCookie = decodeURIComponent(document.cookie);
+  const ca = decodedCookie.split(';');
   for (let i = 0; i < ca.length; i++) {
       let c = ca[i];
       while (c.charAt(0) === ' ') {

@@ -9,7 +9,7 @@ export let color = "#000000";
 export let mirror = false;
 export let wrap = false;
 
-var interval = 5
+const interval = 5
 
 let sx;
 let sy;
@@ -29,9 +29,9 @@ let unchangedHeight = 0;
 function sync() {
     console.log(`${sx} ${sy} ${sw} ${sh}`)
 
-    const image = new Image(),
-        canvas = document.getElementById('editor-canvas'),
-        ctx = canvas.getContext('2d');
+    const image = new Image()
+    const canvas = document.getElementById('editor-canvas')
+    const ctx = canvas.getContext('2d')
 
     image.src = imageBase64
 
@@ -58,9 +58,9 @@ function sync() {
 
 //set the canvas image from outside the js file
 export function setCanvasImg() {
-    const image = new Image(),
-        canvas = document.getElementById('editor-canvas'),
-        ctx = canvas.getContext('2d');
+    const image = new Image()
+    const canvas = document.getElementById('editor-canvas')
+    const ctx = canvas.getContext('2d')
 
     image.src = imageBase64
 
@@ -180,13 +180,13 @@ class Editor extends React.Component {
     }
 
     sxM() {
-        sx = parseInt(document.getElementById('sx').value) - interval
+        sx = Number.parseInt(document.getElementById('sx').value) - interval
         document.getElementById('sx').value = sx
         sync()
     }
 
     sxP() {
-        sx = parseInt(document.getElementById('sx').value) + interval
+        sx = Number.parseInt(document.getElementById('sx').value) + interval
         document.getElementById('sx').value = sx
         sync()
     }
@@ -203,13 +203,13 @@ class Editor extends React.Component {
     }
 
     syM() {
-        sy = parseInt(document.getElementById('sy').value) - interval
+        sy = Number.parseInt(document.getElementById('sy').value) - interval
         document.getElementById('sy').value = sy
         sync()
     }
 
     syP() {
-        sy = parseInt(document.getElementById('sy').value) + interval
+        sy = Number.parseInt(document.getElementById('sy').value) + interval
         document.getElementById('sy').value = sy
         sync()
     }
@@ -226,13 +226,13 @@ class Editor extends React.Component {
     }
 
     swM() {
-        sw = parseInt(document.getElementById('sw').value) - interval
+        sw = Number.parseInt(document.getElementById('sw').value) - interval
         document.getElementById('sw').value = sw
         sync()
     }
 
     swP() {
-        sw = parseInt(document.getElementById('sw').value) + interval
+        sw = Number.parseInt(document.getElementById('sw').value) + interval
         document.getElementById('sw').value = sw
         sync()
     }
@@ -249,13 +249,13 @@ class Editor extends React.Component {
     }
 
     shM() {
-        sh = parseInt(document.getElementById('sh').value) - interval
+        sh = Number.parseInt(document.getElementById('sh').value) - interval
         document.getElementById('sh').value = sh
         sync()
     }
 
     shP() {
-        sh = parseInt(document.getElementById('sh').value) + interval
+        sh = Number.parseInt(document.getElementById('sh').value) + interval
         document.getElementById('sh').value = sh
         sync()
     }
@@ -327,8 +327,8 @@ class Editor extends React.Component {
     }
 
     arM() {
-        sh = ((parseInt(document.getElementById('size-aspect-ratio').value) - interval) * sh) / sw
-        sw = parseInt(document.getElementById('size-aspect-ratio').value) - interval
+        sh = ((Number.parseInt(document.getElementById('size-aspect-ratio').value) - interval) * sh) / sw
+        sw = Number.parseInt(document.getElementById('size-aspect-ratio').value) - interval
 
         document.getElementById('size-aspect-ratio').value = sw
 
@@ -338,8 +338,8 @@ class Editor extends React.Component {
     }
 
     arP() {
-        sh = ((parseInt(document.getElementById('size-aspect-ratio').value) + interval) * sh) / sw
-        sw = parseInt(document.getElementById('size-aspect-ratio').value) + interval
+        sh = ((Number.parseInt(document.getElementById('size-aspect-ratio').value) + interval) * sh) / sw
+        sw = Number.parseInt(document.getElementById('size-aspect-ratio').value) + interval
 
         document.getElementById('size-aspect-ratio').value = sw
 
@@ -405,28 +405,28 @@ class Editor extends React.Component {
                     <div>
                         <div className="editor-label-stack">
                             <span className="editor-input-label"><FontAwesomeIcon icon={faUpDownLeftRight} /> Move Left & Right</span>
-                            <button onClick={this.sxR} className="editor-reset-btn"><FontAwesomeIcon icon={faArrowsRotate} /></button>
+                            <button type="button" onClick={this.sxR} className="editor-reset-btn"><FontAwesomeIcon icon={faArrowsRotate} /></button>
                         </div>
 
-                        <input id="sx" className="editor-range-input" onChange={this.sx} type="range" min="1" max="100"></input>
+                        <input id="sx" className="editor-range-input" onChange={this.sx} type="range" min="1" max="100"/>
 
                         <div id="precise-div-1" className="editor-precise-div">
-                            <button onClick={this.sxM} className="editor-precise-button">-</button>
-                            <button onClick={this.sxP} className="editor-precise-button editor-precise-left-button">+</button>
+                            <button type="button" onClick={this.sxM} className="editor-precise-button">-</button>
+                            <button type="button" onClick={this.sxP} className="editor-precise-button editor-precise-left-button">+</button>
                         </div>
                     </div>
 
                     <div>
                         <div className="editor-label-stack">
                             <span className="editor-input-label"><FontAwesomeIcon icon={faUpDownLeftRight} /> Move Up & Down</span>
-                            <button onClick={this.syR} className="editor-reset-btn"><FontAwesomeIcon icon={faArrowsRotate} /></button>
+                            <button type="button" onClick={this.syR} className="editor-reset-btn"><FontAwesomeIcon icon={faArrowsRotate} /></button>
                         </div>
 
-                        <input id="sy" className="editor-range-input" onChange={this.sy} type="range" min="1" max="100"></input>
+                        <input id="sy" className="editor-range-input" onChange={this.sy} type="range" min="1" max="100"/>
 
                         <div id="precise-div-2" className="editor-precise-div">
-                            <button onClick={this.syM} className="editor-precise-button">-</button>
-                            <button onClick={this.syP} className="editor-precise-button editor-precise-left-button">+</button>
+                            <button type="button" onClick={this.syM} className="editor-precise-button">-</button>
+                            <button type="button" onClick={this.syP} className="editor-precise-button editor-precise-left-button">+</button>
                         </div>
                     </div>
 
@@ -434,28 +434,28 @@ class Editor extends React.Component {
                         <div>
                             <div className="editor-label-stack">
                                 <span className="editor-input-label"><FontAwesomeIcon icon={faMaximize} /> Size Left & Right</span>
-                                <button onClick={this.swR} className="editor-reset-btn"><FontAwesomeIcon icon={faArrowsRotate} /></button>
+                                <button type="button" onClick={this.swR} className="editor-reset-btn"><FontAwesomeIcon icon={faArrowsRotate} /></button>
                             </div>
 
-                            <input id="sw" className="editor-range-input invert-input" onChange={this.sw} type="range" min="1" max="100"></input>
+                            <input id="sw" className="editor-range-input invert-input" onChange={this.sw} type="range" min="1" max="100"/>
 
                             <div id="precise-div-3" className="editor-precise-div">
-                                <button onClick={this.swP} className="editor-precise-button">-</button>
-                                <button onClick={this.swM} className="editor-precise-button editor-precise-left-button">+</button>
+                                <button type="button" onClick={this.swP} className="editor-precise-button">-</button>
+                                <button type="button" onClick={this.swM} className="editor-precise-button editor-precise-left-button">+</button>
                             </div>
                         </div>
 
                         <div>
                             <div className="editor-label-stack">
                                 <span className="editor-input-label"><FontAwesomeIcon icon={faMaximize} /> Size Up & Down</span>
-                                <button onClick={this.shR} className="editor-reset-btn"><FontAwesomeIcon icon={faArrowsRotate} /></button>
+                                <button type="button" onClick={this.shR} className="editor-reset-btn"><FontAwesomeIcon icon={faArrowsRotate} /></button>
                             </div>
 
-                            <input id="sh" className="editor-range-input invert-input" onChange={this.sh} type="range" min="1" max="100"></input>
+                            <input id="sh" className="editor-range-input invert-input" onChange={this.sh} type="range" min="1" max="100"/>
 
                             <div id="precise-div-4" className="editor-precise-div">
-                                <button onClick={this.shP} className="editor-precise-button">-</button>
-                                <button onClick={this.shM} className="editor-precise-button editor-precise-left-button">+</button>
+                                <button type="button" onClick={this.shP} className="editor-precise-button">-</button>
+                                <button type="button" onClick={this.shM} className="editor-precise-button editor-precise-left-button">+</button>
                             </div>
                         </div>
                     </div>
@@ -463,19 +463,19 @@ class Editor extends React.Component {
                     <div id="editor-aspect-ratio-size-control-div" className="editor-aspect-ratio-size-control-div">
                         <div className="editor-label-stack">
                             <span className="editor-input-label"><FontAwesomeIcon icon={faMaximize} /> Size Aspect Ratio</span>
-                            <button onClick={this.arR} className="editor-reset-btn"><FontAwesomeIcon icon={faArrowsRotate} /></button>
+                            <button type="button" onClick={this.arR} className="editor-reset-btn"><FontAwesomeIcon icon={faArrowsRotate} /></button>
                         </div>
 
-                        <input id="size-aspect-ratio" className="editor-range-input invert-input" onChange={this.sizeAspectRatio} type="range" min="1" max="100"></input>
+                        <input id="size-aspect-ratio" className="editor-range-input invert-input" onChange={this.sizeAspectRatio} type="range" min="1" max="100"/>
 
                         <div id="precise-div-5" className="editor-precise-div">
-                            <button onClick={this.arP} className="editor-precise-button">-</button>
-                            <button onClick={this.arM} className="editor-precise-button editor-precise-left-button">+</button>
+                            <button type="button" onClick={this.arP} className="editor-precise-button">-</button>
+                            <button type="button" onClick={this.arM} className="editor-precise-button editor-precise-left-button">+</button>
                         </div>
                     </div>
 
                     <div className="advanced-dropdown-bg">
-                        <button onClick={this.openAdvanced} className="advanced-button"><FontAwesomeIcon icon={faBars} /> Advanced Settings</button>
+                        <button type="button" onClick={this.openAdvanced} className="advanced-button"><FontAwesomeIcon icon={faBars} /> Advanced Settings</button>
 
                         <div id="advanced-dropdown-div" className="advanced-dropdown-div">
                             <div>
@@ -505,11 +505,11 @@ class Editor extends React.Component {
                         </div>
                     </div>
 
-                    <button onClick={this.finish} className="editor-finish-button"><FontAwesomeIcon icon={faCircleCheck} /> Finish Edit</button>
+                    <button type="button" onClick={this.finish} className="editor-finish-button"><FontAwesomeIcon icon={faCircleCheck} /> Finish Edit</button>
                 </div>
 
                 <div className="editor-grid-right">
-                    <canvas id="editor-canvas" className="editor-canvas"></canvas>
+                    <canvas id="editor-canvas" className="editor-canvas"/>
                 </div>
             </div>
         );

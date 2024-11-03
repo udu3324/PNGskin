@@ -9,7 +9,7 @@ import img2 from './img/skin-output(dalle-2).webp';
 
 class Start extends React.Component {
     componentDidMount() {
-        var dropZone = document.getElementById('root');
+        const dropZone = document.getElementById('root');
 
         //tysm <3 https://stackoverflow.com/a/26580724/16216937
         // Optional.   Show the copy icon when dragging over.  Seems to only work for chrome.
@@ -70,7 +70,7 @@ class Start extends React.Component {
             <div id="start">
                 <span className="start-text">PNGskin is a Minecraft Skin Generator that turns images into skins.</span>
                 <br />
-                <button onClick={this.simulateClick} className="upload-image-button"><FontAwesomeIcon icon={faUpload} /> Upload Image</button>
+                <button type="button" onClick={this.simulateClick} className="upload-image-button"><FontAwesomeIcon icon={faUpload} /> Upload Image</button>
                 <input onClick={this.getFile} type="file" id="upload-file" className="hide" name="filename" accept=".png,.jpg,.jpeg,.jfif,.pjpeg,.pjp,.webp" />
                 <br />
                 <div className="start-stack-divs">

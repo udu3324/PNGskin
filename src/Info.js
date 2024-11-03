@@ -3,10 +3,10 @@ import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleXmark, faHeart, faScrewdriverWrench } from '@fortawesome/free-solid-svg-icons'
 
-var configUIOpen = false;
+let configUIOpen = false;
 
 export function toggleInfo() {
-    var infoDiv = document.getElementById('info-div');
+    const infoDiv = document.getElementById('info-div');
     if (configUIOpen) { //opened
         console.log("closing info div")
         //set display to none
@@ -45,10 +45,10 @@ class Info extends React.Component {
                 <p><FontAwesomeIcon icon={faHeart} /> Contribute by reporting issues, feedback, and starring the repo.</p>
 
                 <a href="https://github.com/udu3324/pngskin" target="_blank" rel="noopener noreferrer">
-                    <img id="github-repo" alt="shield" src="https://img.shields.io/badge/Repository-ffffff?style=for-the-badge&logo=github&logoColor=black"></img>
+                    <img id="github-repo" alt="shield" src="https://img.shields.io/badge/Repository-ffffff?style=for-the-badge&logo=github&logoColor=black"/>
                 </a>
                 <br/>
-                <button onClick={this.close} className="info-close-button"><FontAwesomeIcon icon={faCircleXmark} /> Close</button>
+                <button type="button" onClick={this.close} className="info-close-button"><FontAwesomeIcon icon={faCircleXmark} /> Close</button>
             </div>
         </div>;
     }

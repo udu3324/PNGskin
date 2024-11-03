@@ -326,6 +326,10 @@ class Finish extends React.Component {
                     4, 12); //dw, dh (same)
             }
 
+            if (mirror && wrap) {
+                
+            }
+
 
 
             //download it
@@ -345,8 +349,8 @@ class Finish extends React.Component {
 
             for (let i = 0, numFiles = fileList.length; i < numFiles; i++) {
                 const file = fileList[i];
-                var reader = new FileReader()
-                reader.onload = function (base64) {
+                const reader = new FileReader()
+                reader.onload = (base64) => {
                     //base64.target.result
                     setImage(base64.target.result)
                 }
@@ -359,14 +363,14 @@ class Finish extends React.Component {
         return (
             <div id="finish">
                 <span className="finish-text">Here's the finished skin.</span>
-                <br />
-                <button onClick={this.download} className="finish-download-button"><FontAwesomeIcon icon={faDownload} /> Download</button>
-                <div className="mobile-btn-seperator-div"></div>
-                <button onClick={this.simulateClick} className="finish-upload-button"><FontAwesomeIcon icon={faUpload} /> New Skin</button>
-                <input onClick={this.getFile} type="file" id="upload-file" className="hide" name="filename" accept=".png,.jpg,.jpeg,.jfif,.pjpeg,.pjp,.webp" />
-                <br />
-                <img id="finish-img" className="finish-img" src={imageBase64} alt="final skin"></img>
-                <canvas id="finish-canvas"></canvas>
+                <br/>
+                <button type="button" onClick={this.download} className="finish-download-button"><FontAwesomeIcon icon={faDownload} /> Download</button>
+                <div className="mobile-btn-seperator-div"/>
+                <button type="button" onClick={this.simulateClick} className="finish-upload-button"><FontAwesomeIcon icon={faUpload} /> New Skin</button>
+                <input onClick={this.getFile} type="file" id="upload-file" className="hide" name="filename" accept=".png,.jpg,.jpeg,.jfif,.pjpeg,.pjp,.webp"/>
+                <br/>
+                <img id="finish-img" className="finish-img" src={imageBase64} alt="final skin"/>
+                <canvas id="finish-canvas"/>
             </div>
         );
     }
