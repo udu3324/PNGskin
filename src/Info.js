@@ -1,33 +1,33 @@
-import React from "react";
+import React from "react"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleXmark, faHeart, faScrewdriverWrench } from '@fortawesome/free-solid-svg-icons'
 
-let configUIOpen = false;
+let configUIOpen = false
 
 export function toggleInfo() {
-    const infoDiv = document.getElementById('info-div');
+    const infoDiv = document.getElementById('info-div')
     if (configUIOpen) { //opened
         console.log("closing info div")
         //set display to none
         infoDiv.style.display = "none"
 
-        configUIOpen = false;
+        configUIOpen = false
     } else { //not opened
         console.log("opening info div")
         //set display to block
         infoDiv.style.display = "block"
 
-        configUIOpen = true;
+        configUIOpen = true
     }
 }
 
 class Info extends React.Component {
     constructor(props) {
-        super(props);
+        super(props)
         // This binding is necessary to make `this` work in the callback
 
-        this.close = this.close.bind(this);
+        this.close = this.close.bind(this)
     }
 
     close() {
@@ -50,8 +50,8 @@ class Info extends React.Component {
                 <br/>
                 <button type="button" onClick={this.close} className="info-close-button"><FontAwesomeIcon icon={faCircleXmark} /> Close</button>
             </div>
-        </div>;
+        </div>
     }
 }
 
-export default Info;
+export default Info

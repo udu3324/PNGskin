@@ -1,29 +1,29 @@
-import React from "react";
+import React from "react"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowsRotate, faBars, faCircleCheck, faMaximize, faUpDownLeftRight } from '@fortawesome/free-solid-svg-icons'
-import { getCookie, imageBase64, setCookie, setImage } from ".";
+import { getCookie, imageBase64, setCookie, setImage } from "."
 
-export let color = "#000000";
+export let color = "#000000"
 
-export let mirror = false;
-export let wrap = false;
+export let mirror = false
+export let wrap = false
 
 const interval = 5
 
-let sx;
-let sy;
-let sw;
-let sh;
-let dw;
-let dh;
+let sx
+let sy
+let sw
+let sh
+let dw
+let dh
 
-let openedAdvancedMenu = false;
-let scaleAspectRatio = false;
-let precise = false;
+let openedAdvancedMenu = false
+let scaleAspectRatio = false
+let precise = false
 
-let unchangedWidth = 0;
-let unchangedHeight = 0;
+let unchangedWidth = 0
+let unchangedHeight = 0
 
 //draws the new edited image to the canvas
 function sync() {
@@ -37,22 +37,22 @@ function sync() {
 
     image.addEventListener('load', () => {
         //fill the bg
-        ctx.fillStyle = color;
-        ctx.fillRect(0, 0, 16, 32);
+        ctx.fillStyle = color
+        ctx.fillRect(0, 0, 16, 32)
 
         //draw the image
         ctx.drawImage(image,
             sx, sy,   // Start at 70/20 pixels from the left and the top of the image (crop),
             sw, sh,   // "Get" a `50 * 50` (w * h) area from the source image (crop),
             0, 0,     // Place the result at 0, 0 in the canvas,
-            dw, dh); // With as width / height: 100 * 100 (scale)
+            dw, dh) // With as width / height: 100 * 100 (scale)
 
         //create the silhouette 
-        ctx.fillStyle = '#36393f';
-        ctx.fillRect(0, 0, 4, 8);
-        ctx.fillRect(12, 0, 4, 8);
-        ctx.fillRect(0, 20, 4, 12);
-        ctx.fillRect(12, 20, 4, 12);
+        ctx.fillStyle = '#36393f'
+        ctx.fillRect(0, 0, 4, 8)
+        ctx.fillRect(12, 0, 4, 8)
+        ctx.fillRect(0, 20, 4, 12)
+        ctx.fillRect(12, 20, 4, 12)
     })
 }
 
@@ -106,7 +106,7 @@ export function setCanvasImg() {
         document.getElementById('clr-input').value = "#000000"
 
         sync()
-    });
+    })
 }
 
 class Editor extends React.Component {
@@ -145,39 +145,39 @@ class Editor extends React.Component {
     }
 
     constructor(props) {
-        super(props);
+        super(props)
 
-        this.sx = this.sx.bind(this);
-        this.sxM = this.sxM.bind(this);
-        this.sxP = this.sxP.bind(this);
-        this.sxR = this.sxR.bind(this);
+        this.sx = this.sx.bind(this)
+        this.sxM = this.sxM.bind(this)
+        this.sxP = this.sxP.bind(this)
+        this.sxR = this.sxR.bind(this)
 
-        this.sy = this.sy.bind(this);
-        this.syM = this.syM.bind(this);
-        this.syP = this.syP.bind(this);
-        this.syR = this.syR.bind(this);
+        this.sy = this.sy.bind(this)
+        this.syM = this.syM.bind(this)
+        this.syP = this.syP.bind(this)
+        this.syR = this.syR.bind(this)
 
-        this.sw = this.sw.bind(this);
-        this.swM = this.swM.bind(this);
-        this.swP = this.swP.bind(this);
-        this.swR = this.swR.bind(this);
+        this.sw = this.sw.bind(this)
+        this.swM = this.swM.bind(this)
+        this.swP = this.swP.bind(this)
+        this.swR = this.swR.bind(this)
 
-        this.sh = this.sh.bind(this);
-        this.shM = this.shM.bind(this);
-        this.shP = this.shP.bind(this);
-        this.shR = this.shR.bind(this);
+        this.sh = this.sh.bind(this)
+        this.shM = this.shM.bind(this)
+        this.shP = this.shP.bind(this)
+        this.shR = this.shR.bind(this)
 
-        this.openAdvanced = this.openAdvanced.bind(this);
-        this.colorInput = this.colorInput.bind(this);
-        this.mirrorInput = this.mirrorInput.bind(this);
-        this.wrapInput = this.wrapInput.bind(this);
-        this.aspectRatio = this.aspectRatio.bind(this);
-        this.arM = this.arM.bind(this);
-        this.arP = this.arP.bind(this);
-        this.arR = this.arR.bind(this);
-        this.preciseEditing = this.preciseEditing.bind(this);
+        this.openAdvanced = this.openAdvanced.bind(this)
+        this.colorInput = this.colorInput.bind(this)
+        this.mirrorInput = this.mirrorInput.bind(this)
+        this.wrapInput = this.wrapInput.bind(this)
+        this.aspectRatio = this.aspectRatio.bind(this)
+        this.arM = this.arM.bind(this)
+        this.arP = this.arP.bind(this)
+        this.arR = this.arR.bind(this)
+        this.preciseEditing = this.preciseEditing.bind(this)
 
-        this.finish = this.finish.bind(this);
+        this.finish = this.finish.bind(this)
     }
 
     sx() {
@@ -299,33 +299,33 @@ class Editor extends React.Component {
     mirrorInput() {
         if (mirror) {
             setCookie("mirrorback", "false", 9999999999)
-            mirror = false;
+            mirror = false
         } else {
             setCookie("mirrorback", "true", 9999999999)
-            mirror = true;
+            mirror = true
         }
     }
 
     wrapInput() {
         if (wrap) {
             setCookie("wrapimage", "false", 9999999999)
-            wrap = false;
+            wrap = false
         } else {
             setCookie("wrapimage", "true", 9999999999)
-            wrap = true;
+            wrap = true
         }
     }
 
     aspectRatio() {
         if (scaleAspectRatio) {
             setCookie("aspectratio", "false", 9999999999)
-            scaleAspectRatio = false;
+            scaleAspectRatio = false
 
             document.getElementById('editor-size-control-div').style.display = "block"
             document.getElementById('editor-aspect-ratio-size-control-div').style.display = "none"
         } else {
             setCookie("aspectratio", "true", 9999999999)
-            scaleAspectRatio = true;
+            scaleAspectRatio = true
 
             document.getElementById('editor-size-control-div').style.display = "none"
             document.getElementById('editor-aspect-ratio-size-control-div').style.display = "block"
@@ -368,7 +368,7 @@ class Editor extends React.Component {
     preciseEditing() {
         if (precise) {
             setCookie("preciseedit", "false", 9999999999)
-            precise = false;
+            precise = false
 
             document.getElementById('precise-div-1').style.display = "none"
             document.getElementById('precise-div-2').style.display = "none"
@@ -377,7 +377,7 @@ class Editor extends React.Component {
             document.getElementById('precise-div-5').style.display = "none"
         } else {
             setCookie("preciseedit", "true", 9999999999)
-            precise = true;
+            precise = true
 
             document.getElementById('precise-div-1').style.display = "block"
             document.getElementById('precise-div-2').style.display = "block"
@@ -518,8 +518,8 @@ class Editor extends React.Component {
                     <canvas id="editor-canvas" className="editor-canvas"/>
                 </div>
             </div>
-        );
+        )
     }
 }
 
-export default Editor;
+export default Editor

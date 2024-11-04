@@ -1,7 +1,7 @@
-import React from "react";
-import Editor from "./Editor";
-import Finish from "./Finish";
-import Start from "./Start";
+import React from "react"
+import Editor from "./Editor"
+import Finish from "./Finish"
+import Start from "./Start"
 
 class Content extends React.Component {
     render() {

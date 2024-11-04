@@ -1,20 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-import './styles/index.css';
-import App from './App';
-import { setCanvasImg } from './Editor';
-import reportWebVitals from './reportWebVitals';
-import { sendToVercelAnalytics } from './Vitals';
+import './styles/index.css'
+import App from './App'
+import { setCanvasImg } from './Editor'
+import reportWebVitals from './reportWebVitals'
+import { sendToVercelAnalytics } from './Vitals'
 
-export const image = new Image();
+export const image = new Image()
 
-export let imageBase64;
+export let imageBase64
 
 export function setImage(base64) {
   console.log("img has been set. ")
 
-  image.src = base64;
+  image.src = base64
 
   image.onload = () => {
     //stop if image is too small
@@ -35,7 +35,7 @@ export function setImage(base64) {
       document.getElementById('editor').style.display = "grid"
       setCanvasImg()
     }
-  };
+  }
 }
 
 //cookies:
@@ -44,25 +44,27 @@ export function setImage(base64) {
 //preciseedit|bool string
 
 export function setCookie(cname, cvalue, exdays) {
-  const d = new Date();
-  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-  const expires = `expires=${d.toUTCString()}`;
-  document.cookie = `${cname}=${cvalue};${expires};path=/`;
+  const d = new Date()
+  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000))
+  const expires = `expires=${d.toUTCString()}`
+  document.cookie = `${cname}=${cvalue};${expires};path=/`
 }
 
 export function getCookie(cname) {
-  const name = `${cname}=`;
-  const decodedCookie = decodeURIComponent(document.cookie);
-  const ca = decodedCookie.split(';');
+  const name = `${cname}=`
+  const decodedCookie = decodeURIComponent(document.cookie)
+  const ca = decodedCookie.split(';')
+
   for (let i = 0; i < ca.length; i++) {
-      let c = ca[i];
+      let c = ca[i]
       while (c.charAt(0) === ' ') {
-          c = c.substring(1);
+        c = c.substring(1)
       }
       if (c.indexOf(name) === 0)
-          return c.substring(name.length, c.length);
+        return c.substring(name.length, c.length)
   }
-  return "";
+
+  return ""
 }
 
 console.log("pngskin by udu3324 (https://github.com/udu3324)")
@@ -72,6 +74,6 @@ ReactDOM.render(
     <App />
   </React.StrictMode>,
   document.getElementById('root')
-);
+)
 
-reportWebVitals(sendToVercelAnalytics);
+reportWebVitals(sendToVercelAnalytics)

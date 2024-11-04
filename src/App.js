@@ -1,7 +1,7 @@
-import './styles/App.css';
+import './styles/App.css'
 import Content from './Content'
-import Nav from './Nav';
-import Info from './Info';
+import Nav from './Nav'
+import Info from './Info'
 
 function App() {
   return (
@@ -14,4 +14,4 @@ function App() {
   );
 }
 
-export default App;
+export default App
