@@ -371,13 +371,14 @@ class Finish extends React.Component {
 
             if (mirror && wrap) {
                 //top head x
-                //ctx.drawImage(image,
-                //    4, 0,  //sx, sy
-                //    8, 2,  //sw, sh (same)
-                //    8, 0,  //dx, dy
-                //    8, 2) //dw, dh (same)
+                ctx.drawImage(image,
+                    4, 0,  //sx, sy
+                    8, 2,  //sw, sh (same)
+                    8, 0,  //dx, dy
+                    8, 2) //dw, dh (same)
 
                 //bottom head x
+                pasteFlipX(ctx, image, 4, 6, 16, 0, 8, 2)
                 //ctx.drawImage(image,
                 //    4, 6,  //sx, sy
                 //    8, 2,  //sw, sh (same)
@@ -385,27 +386,28 @@ class Finish extends React.Component {
                 //    8, 2) //dw, dh (same)
 
                 //left head x
-                //ctx.drawImage(image,
-                //    4, 0,  //sx, sy
-                //    2, 8,  //sw, sh (same)
-                //    22, 8,  //dx, dy
-                //    2, 8) //dw, dh (same)
+                ctx.drawImage(image,
+                    10, 0,  //sx, sy
+                    2, 8,  //sw, sh (same)
+                    22, 8,  //dx, dy
+                    2, 8) //dw, dh (same)
 
                 //right head x
-                //ctx.drawImage(image,
-                //    10, 0,  //sx, sy
-                //    2, 8,  //sw, sh (same)
-                //    0, 8,  //dx, dy
-                //    2, 8) //dw, dh (same)
+                ctx.drawImage(image,
+                    4, 0,  //sx, sy
+                    2, 8,  //sw, sh (same)
+                    0, 8,  //dx, dy
+                    2, 8) //dw, dh (same)
                 
                 //top body x
-                //ctx.drawImage(image,
-                //    4, 8,  //sx, sy
-                //    8, 2,  //sw, sh (same)
-                //    20, 16,  //dx, dy
-                //    8, 2) //dw, dh (same)
+                ctx.drawImage(image,
+                    4, 8,  //sx, sy
+                    8, 2,  //sw, sh (same)
+                    20, 16,  //dx, dy
+                    8, 2) //dw, dh (same)
 
                 //bottom body x
+                pasteFlipX(ctx, image, 4, 18, 28, 16, 8, 2)
                 //ctx.drawImage(image,
                 //    4, 18,  //sx, sy
                 //    8, 2,  //sw, sh (same)
@@ -413,27 +415,28 @@ class Finish extends React.Component {
                 //    8, 2) //dw, dh (same)
 
                 //left body x
-                //ctx.drawImage(image,
-                //    4, 8,  //sx, sy
-                //    2, 12,  //sw, sh (same)
-                //    30, 20,  //dx, dy
-                //    2, 12) //dw, dh (same)
+                ctx.drawImage(image,
+                    4, 8,  //sx, sy
+                    2, 12,  //sw, sh (same)
+                    16, 20,  //dx, dy
+                    2, 12) //dw, dh (same)
 
                 //right body x
-                //ctx.drawImage(image,
-                //    10, 8,  //sx, sy
-                //    2, 12,  //sw, sh (same)
-                //    16, 20,  //dx, dy
-                //    2, 12) //dw, dh (same)
+                ctx.drawImage(image,
+                    10, 8,  //sx, sy
+                    2, 12,  //sw, sh (same)
+                    30, 20,  //dx, dy
+                    2, 12) //dw, dh (same)
                 
                 //top left arm x
-                //ctx.drawImage(image,
-                //    0, 8,  //sx, sy
-                //    4, 2,  //sw, sh (same)
-                //    44, 16,  //dx, dy
-                //    4, 2) //dw, dh (same)
+                ctx.drawImage(image,
+                    0, 8,  //sx, sy
+                    4, 2,  //sw, sh (same)
+                    44, 16,  //dx, dy
+                    4, 2) //dw, dh (same)
 
                 //bottom left arm x
+                pasteFlipX(ctx, image, 0, 18, 48, 16, 4, 2)
                 //ctx.drawImage(image,
                 //    0, 18,  //sx, sy
                 //    4, 2,  //sw, sh (same)
@@ -441,18 +444,105 @@ class Finish extends React.Component {
                 //    4, 2) //dw, dh (same)
 
                 //left left arm x
-                //ctx.drawImage(image,
-                //    0, 8,  //sx, sy
-                //    2, 12,  //sw, sh (same)
-                //    40, 20,  //dx, dy
-                //    2, 12) //dw, dh (same)
+                ctx.drawImage(image,
+                    0, 8,  //sx, sy
+                    2, 12,  //sw, sh (same)
+                    40, 20,  //dx, dy
+                    2, 12) //dw, dh (same)
 
                 //right left arm
+                ctx.drawImage(image,
+                    2, 8,  //sx, sy
+                    2, 12,  //sw, sh (same)
+                    50, 20,  //dx, dy
+                    2, 12) //dw, dh (same)
+                
+                //top right arm
+                ctx.drawImage(image,
+                    12, 8,  //sx, sy
+                    4, 2,  //sw, sh (same)
+                    36, 48,  //dx, dy
+                    4, 2) //dw, dh (same)
+
+                //bottom right arm
+                pasteFlipX(ctx, image, 12, 18, 40, 48, 4, 2)
                 //ctx.drawImage(image,
-                //    2, 8,  //sx, sy
-                //    2, 12,  //sw, sh (same)
-                //    50, 20,  //dx, dy
-                //    2, 12) //dw, dh (same)
+                //    12, 18,  //sx, sy
+                //    4, 2,  //sw, sh (same)
+                //    40, 50,  //dx, dy
+                //    4, 2) //dw, dh (same)
+
+                //left right arm
+                ctx.drawImage(image,
+                    12, 8,  //sx, sy
+                    2, 12,  //sw, sh (same)
+                    32, 52,  //dx, dy
+                    2, 12) //dw, dh (same)
+
+                //right right arm
+                ctx.drawImage(image,
+                    14, 8,  //sx, sy
+                    2, 12,  //sw, sh (same)
+                    42, 52,  //dx, dy
+                    2, 12) //dw, dh (same)
+                
+                //top left leg
+                ctx.drawImage(image,
+                    4, 20,  //sx, sy
+                    4, 2,  //sw, sh (same)
+                    4, 16,  //dx, dy
+                    4, 2) //dw, dh (same)
+
+                //bottom left leg
+                pasteFlipX(ctx, image, 4, 30, 8, 16, 4, 2)
+                //ctx.drawImage(image,
+                //    4, 30,  //sx, sy
+                //    4, 2,  //sw, sh (same)
+                //    8, 16,  //dx, dy
+                //    4, 2) //dw, dh (same)
+
+                //left left leg
+                ctx.drawImage(image,
+                    4, 20,  //sx, sy
+                    2, 12,  //sw, sh (same)
+                    0, 20,  //dx, dy
+                    2, 12) //dw, dh (same)
+
+                //right left leg
+                ctx.drawImage(image,
+                    6, 20,  //sx, sy
+                    2, 12,  //sw, sh (same)
+                    10, 20,  //dx, dy
+                    2, 12) //dw, dh (same)
+                
+                //top right leg
+                ctx.drawImage(image,
+                    8, 20,  //sx, sy
+                    4, 2,  //sw, sh (same)
+                    20, 48,  //dx, dy
+                    4, 2) //dw, dh (same)
+
+                //bottom right leg
+                pasteFlipX(ctx, image, 8, 30, 24, 48, 4, 2)
+                //ctx.drawImage(image,
+                //    8, 30,  //sx, sy
+                //    4, 2,  //sw, sh (same)
+                //    24, 48,  //dx, dy
+                //    4, 2) //dw, dh (same)
+
+                //left right leg
+                ctx.drawImage(image,
+                    8, 20,  //sx, sy
+                    2, 12,  //sw, sh (same)
+                    16, 52,  //dx, dy
+                    2, 12) //dw, dh (same)
+
+                //right right leg
+                ctx.drawImage(image,
+                    10, 20,  //sx, sy
+                    2, 12,  //sw, sh (same)
+                    26, 52,  //dx, dy
+                    2, 12) //dw, dh (same)
             }
 
 
