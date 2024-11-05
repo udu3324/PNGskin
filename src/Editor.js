@@ -118,9 +118,6 @@ class Editor extends React.Component {
         if (getCookie("wrapimage") === "") {
             setCookie("wrapimage", "true")
         }
-        if (getCookie("mirrorback") === "") {
-            setCookie("mirrorback", "true")
-        }
 
         if (getCookie("mirrorback") === "true") {
             document.getElementById('mirror-input').checked = true

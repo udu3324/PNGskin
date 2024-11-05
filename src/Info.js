@@ -42,7 +42,7 @@ class Info extends React.Component {
 
                 <p><FontAwesomeIcon icon={faScrewdriverWrench} /> It is a tool that maps a image to a minecraft skin easily, so that you dont have to.</p>
 
-                <p><FontAwesomeIcon icon={faHeart} /> Contribute by reporting issues, feedback, and starring the repo.</p>
+                <p><FontAwesomeIcon icon={faHeart} /> Fully Open Source</p>
 
                 <a href="https://github.com/udu3324/pngskin" target="_blank" rel="noopener noreferrer">
                     <img id="github-repo" alt="shield" src="https://img.shields.io/badge/Repository-ffffff?style=for-the-badge&logo=github&logoColor=black"/>
