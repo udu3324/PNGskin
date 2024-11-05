@@ -321,13 +321,15 @@ class Finish extends React.Component {
 
             if (mirror) {
                 //head
-                //tx.drawImage(image,
+                pasteFlipY(ctx, image, 4, 0, 24, 8, 8, 8)
+                //ctx.drawImage(image,
                 //   4, 0,  //sx, sy
                 //   8, 8,  //sw, sh (same)
                 //   24, 8,  //dx, dy
                 //   8, 8) //dw, dh (same)
                 
                 //body
+                pasteFlipY(ctx, image, 4, 8, 32, 20, 8, 12)
                 //ctx.drawImage(image,
                 //    4, 8,  //sx, sy
                 //    8, 12,  //sw, sh (same)
@@ -335,6 +337,7 @@ class Finish extends React.Component {
                 //    8, 12) //dw, dh (same)
 
                 //left arm
+                pasteFlipY(ctx, image, 12, 8, 44, 52, 4, 12)
                 //ctx.drawImage(image,
                 //    0, 8,  //sx, sy
                 //    4, 12,  //sw, sh (same)
@@ -342,6 +345,7 @@ class Finish extends React.Component {
                 //    4, 12) //dw, dh (same)
 
                 //right arm
+                pasteFlipY(ctx, image, 0, 8, 52, 20, 4, 12)
                 //ctx.drawImage(image,
                 //    12, 8,  //sx, sy
                 //    4, 12,  //sw, sh (same)
@@ -349,6 +353,7 @@ class Finish extends React.Component {
                 //    4, 12) //dw, dh (same)
 
                 //left leg
+                pasteFlipY(ctx, image, 8, 20, 28, 52, 4, 12)
                 //ctx.drawImage(image,
                 //    4, 20,  //sx, sy
                 //    4, 12,  //sw, sh (same)
@@ -356,6 +361,7 @@ class Finish extends React.Component {
                 //    4, 12) //dw, dh (same)
 
                 //right leg
+                pasteFlipY(ctx, image, 4, 20, 12, 20, 4, 12)
                 //ctx.drawImage(image,
                 //    8, 20,  //sx, sy
                 //    4, 12,  //sw, sh (same)
