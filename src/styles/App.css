@@ -425,3 +425,8 @@ canvas#finish-canvas {
     padding-top: 0.05rem;
   }
 }
+
+
+.redirect-btn {
+  width: 100%;
+}
