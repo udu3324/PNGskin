@@ -4,6 +4,14 @@ link: [pngskin2 website](https://pngskin.udu3324.org/)
 
 repository: [pngskin2 repo](https://github.com/udu3324/pngskin2)
 
+# outdated. use pngskin2!!!!
+
+
+
+
+
+
+
 # PNGskin
 
 PNGskin is a tool that simplifies the process of turning images into minecraft skins using the Canvas Web API. You can create a skin by just using 4 sliders. It's that simple. It is also desktop & mobile friendly.
