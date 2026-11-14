@@ -1,8 +1,8 @@
 # outdated. use pngskin2!!!!
 
-link: [pngskin2 website](https://pngskin.udu3324.org/)
+------> link: [pngskin2 website](https://pngskin.udu3324.org/)
 
-repository: [pngskin2 repo](https://github.com/udu3324/pngskin2)
+------> repository: [pngskin2 repo](https://github.com/udu3324/pngskin2)
 
 # outdated. use pngskin2!!!!
 
